@@ -24,6 +24,7 @@ public class App
             driver.findElement(By.xpath("//*[@id=\"bilibiliPlayer\"]/div[1]/div[1]/div[9]/video")).click();
             Thread.sleep(20000);
             driver.close();
+			Thread.sleep(60000);
         }
     }
 }
