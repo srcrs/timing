@@ -22,9 +22,10 @@ jobs:
     - name: Build with Maven
       env: 
         URL: ${{ secrets.URL }}
+        N: ${{ secrets.N }}
       run: |
         cd bilibili
         sudo dpkg -i google-chrome-stable_current_amd64.deb
         sudo apt-get -f install
         unzip chromedriver_linux64.zip
-        mvn compile exec:java -Dexec.mainClass="org.example.App" -Dexec.args="${URL}"
+        mvn compile exec:java -Dexec.mainClass="org.example.App" -Dexec.args="${N} ${URL}"
