@@ -15,6 +15,7 @@ public class App
         ChromeOptions chromeOptions=new ChromeOptions();
         chromeOptions.setHeadless(Boolean.TRUE);
         System.setProperty("webdriver.chrome.driver","chromedriver");
+		chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         int n=Integer.valueOf(args[0]);
         while(n--!=0){
             WebDriver driver = new ChromeDriver(chromeOptions);
