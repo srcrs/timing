@@ -43,9 +43,9 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       env: 
-        URL_1: ${{ secrets.URL_4 }}
-        URL_2: ${{ secrets.URL_5 }}
-        URL_3: ${{ secrets.URL_6 }}
+        URL_4: ${{ secrets.URL_4 }}
+        URL_5: ${{ secrets.URL_5 }}
+        URL_6: ${{ secrets.URL_6 }}
       run: |
         cd bilibili
         sudo dpkg -i google-chrome-stable_current_amd64.deb
