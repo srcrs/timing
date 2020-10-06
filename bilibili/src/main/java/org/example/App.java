@@ -15,7 +15,7 @@ public class App
     public static void main( String[] args ) throws Exception {
         ChromeOptions chromeOptions=new ChromeOptions();
         chromeOptions.setHeadless(Boolean.TRUE);
-		chromeOptions.addArguments("User-Agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36");
+		chromeOptions.addArguments("User-Agent=Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Mobile Safari/537.36");
         System.setProperty("webdriver.chrome.driver","chromedriver");
 		chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         Random random = new Random();
@@ -26,7 +26,7 @@ public class App
                 Thread.sleep(2000);
                 driver.get(args[n]);
                 Thread.sleep(3000);
-                driver.findElement(By.xpath("//*[@id=\"bilibiliPlayer\"]/div[1]/div[1]/div[10]/div[2]/div[2]/div[1]/div[1]/button[1]")).click();
+                driver.findElement(By.xpath("//*[@id="bilibiliPlayer"]/div/div/div[2]/div[2]/div[5]/i")).click();
                 //观看视频时间随机。
                 Thread.sleep((20+random.nextInt(50))*1000);
                 driver.close();
