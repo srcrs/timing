@@ -15,22 +15,26 @@ public class App
     public static void main( String[] args ) throws Exception {
         ChromeOptions chromeOptions=new ChromeOptions();
         chromeOptions.setHeadless(Boolean.TRUE);
-		chromeOptions.addArguments("User-Agent=Mozilla/5.0 (Linux; Android 5.0; SM-G900P Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Mobile Safari/537.36");
         System.setProperty("webdriver.chrome.driver","chromedriver");
 		WebDriver driver = new ChromeDriver(chromeOptions);
         Random random = new Random();
         int n=3;
-        while(n--!=0){
-            if(!("000".equals(args[n]))){
-                Thread.sleep(2000);
-                driver.get(args[n]);
-                Thread.sleep(3000);
-                driver.findElement(By.xpath("//*[@id='bilibiliPlayer']/div/div/div[2]/div[2]/div[5]/i")).click();
-                //观看视频时间随机。
-                Thread.sleep((20+random.nextInt(50))*1000);
-			    Thread.sleep(20000);
+        try{
+            while(n--!=0){
+                if(!("000".equals(args[n]))){
+                    Thread.sleep(5000);
+                    driver.get(args[n]);
+                    Thread.sleep(5000);
+                    driver.findElement(By.xpath("//*[@id=\"bilibiliPlayer\"]/div[1]/div[1]/div[10]/div[2]/div[2]/div[1]/div[1]/button[1]")).click();
+                    //观看视频时间随机。
+                    Thread.sleep((20+random.nextInt(50))*1000);
+                    Thread.sleep(20000);
+                }
             }
+        } catch (Exception e){
+            System.out.println(e);
+        } finally {
+            driver.close();
         }
-		driver.close();
     }
 }
