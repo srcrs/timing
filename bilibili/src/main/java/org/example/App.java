@@ -16,11 +16,11 @@ public class App
         ChromeOptions chromeOptions=new ChromeOptions();
         chromeOptions.setHeadless(Boolean.TRUE);
         System.setProperty("webdriver.chrome.driver","chromedriver");
-		WebDriver driver = new ChromeDriver(chromeOptions);
         Random random = new Random();
         int n=3;
         while(n--!=0){
             if(!("000".equals(args[n]))){
+                WebDriver driver = new ChromeDriver(chromeOptions);
                 Thread.sleep(5000);
                 driver.get(args[n]);
                 Thread.sleep(5000);
@@ -34,7 +34,7 @@ public class App
                 Thread.sleep((20+random.nextInt(50))*1000);
                 Thread.sleep(20000);
             }
+            driver.close();
         }
-        driver.close();
     }
 }
