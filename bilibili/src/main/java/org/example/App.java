@@ -33,8 +33,8 @@ public class App
                 //观看视频时间随机。
                 Thread.sleep((20+random.nextInt(50))*1000);
                 Thread.sleep(20000);
+                driver.close();
             }
-            driver.close();
         }
     }
 }
