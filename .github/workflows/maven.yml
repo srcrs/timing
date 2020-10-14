@@ -25,10 +25,9 @@ jobs:
         URL_2: ${{ secrets.URL_2 }}
         URL_3: ${{ secrets.URL_3 }}
       run: |
+        sudo apt-get update
+        sudo apt-get install google-chrome
         cd bilibili
-        sudo dpkg -i google-chrome-stable_current_amd64.deb
-        sudo apt-get -f install
-        unzip chromedriver_linux64.zip
         mvn compile exec:java -Dexec.mainClass="org.example.App" -Dexec.args="${URL_1} ${URL_2} ${URL_3}"
   
   two:
